@@ -107,7 +107,7 @@ class TwentyMethods{
 		assertArrayInRange("18", 5, -100, 100, arrayFor18);			
 
 		//19
-		char[] charArrayFor19 = {'A', 'f', 'a', 'r', 'm', 'o'}; 
+		char[] charArrayFor19 = {'f', 'f', 'a', 'A', 'f', 'a', 'r', 'm', 'o'}; 
 		char[] charArrayFor19_2 = {'f', 'a', 'r', 'm'};
 		assertTrue("19", isCharSequencePresent(charArrayFor19, charArrayFor19_2));
 
@@ -385,14 +385,21 @@ class TwentyMethods{
 	//19
 	public static boolean isCharSequencePresent(char[] charArray1, char[] charArray2){
 		
+		int sameSequenceLength = 0; 
+
 		for(int i = 0; i < charArray1.length; i++){
 			if(charArray1[i] == charArray2[0]){				
 				for(int j = 0; j < charArray2.length; j++){
+
+					sameSequenceLength++;					
 					if(i + j > charArray1.length - 1 || charArray1[i + j] != charArray2[j]){
-						return false;
-					}
+						sameSequenceLength = 0;
+					}					
 				}
-				return true;
+				if(sameSequenceLength == charArray2.length){
+					System.out.println("sameSequenceLength: " + sameSequenceLength);
+					return true;
+				}
 			}			
 		}
 		return false;
