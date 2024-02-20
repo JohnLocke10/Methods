@@ -397,7 +397,6 @@ class TwentyMethods{
 					}					
 				}
 				if(sameSequenceLength == charArray2.length){
-					System.out.println("sameSequenceLength: " + sameSequenceLength);
 					return true;
 				}
 			}			
